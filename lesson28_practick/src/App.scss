@@ -1,0 +1,39 @@
+.App {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 30px 0 50px;
+  h1 {
+    text-align: center;
+    color: red;
+  }
+  .filter {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .todos {
+    .todo {
+      display: flex;
+      justify-content: space-between;
+      background: rgba(0, 0, 0, 0.267);
+      padding: 10px;
+      border-radius: 10px;
+      margin-bottom: 5px;
+      &.done {
+        background: rgb(102, 187, 102);
+      }
+    }
+  }
+  .addTodo {
+    display: flex;
+    justify-content: space-between;
+    input {
+      max-width: 450px;
+      width: 100%;
+    }
+  }
+  .customeComponent {
+    background: red;
+    padding: 20px;
+  }
+}
