@@ -6,6 +6,7 @@ import OurComponent from "./components/CustomComponents/OurComponents/index";
 import {v4 as uuidv4} from 'uuid';
 import Text from "./components/CustomComponents/OurComponents/text";
 import FuncEl from "./components/CustomComponents/OurComponents/FuncEl/index";
+import Nav from "./components/CustomComponents/OurComponents/Nav/index";
 
 // function App() {
 //   return <div className="App">Functional Component</div>;
@@ -84,6 +85,7 @@ class App extends React.Component {
     const {newTodoName, todos} = this.state
     return (
       < div className="App">
+        <Nav/>
         <h1>Todo app</h1>
         <div className="filter">
           <Button variant='contained'>All</Button>
@@ -123,8 +125,9 @@ class App extends React.Component {
         <Text text='World'/>
         <Text text='Hello'/>
         <Text text='Hi'/>
-        <FuncEl number={123} text={'bla-bla'}/>
-        <FuncEl number={888888} text={'bla-bla-bla-bla'}/>
+        <FuncEl number={1} text={'bla-bla'}/>
+        <FuncEl number={2} text={'bla-bla-bla-bla'}/>
+        <FuncEl number={3} text={'kjibkjbjkjbkug'}/>
       </div>
     );
   }
