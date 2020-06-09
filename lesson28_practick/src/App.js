@@ -65,6 +65,19 @@ class App extends React.Component {
     })
   }
 
+  editTodo = id => {
+    this.setState({
+      todos: this.state.todos.map(el => {
+        if (el.id === id) {
+          return {
+            ...el, text: '546545'
+          }
+        }
+        return el
+      })
+    })
+  }
+
   deleteTodo = (id) => {
     this.setState({
       todos: this.state.todos.map(el => {
@@ -103,6 +116,12 @@ class App extends React.Component {
                         onChange={(event) => this.doneTodo(event, todo.id)}/>
               <p>{todo.text}</p>
               <Button
+                color='primary'
+                variant='contained'
+                onClick={() => this.editTodo(todo.id)}>
+                Edit
+              </Button>
+              <Button
                 color='secondary'
                 variant='outlined'
                 onClick={() => this.deleteTodo(todo.id)}>
@@ -122,12 +141,10 @@ class App extends React.Component {
         </div>
         <OurComponent number={uuidv4()} text={'dfdf'}/>
         <OurComponent number={uuidv4()} text={'dfbbdfsbsfdbsd'}/>
-        <Text text='World'/>
         <Text text='Hello'/>
-        <Text text='Hi'/>
+        <Text text='World'/>
         <FuncEl number={1} text={'bla-bla'}/>
-        <FuncEl number={2} text={'bla-bla-bla-bla'}/>
-        <FuncEl number={3} text={'kjibkjbjkjbkug'}/>
+        <FuncEl number={2} text={'bla-bla-bla'}/>
       </div>
     );
   }

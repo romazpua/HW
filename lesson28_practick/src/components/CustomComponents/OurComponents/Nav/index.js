@@ -8,7 +8,6 @@ class Nav extends Component {
     };
 
     toggleNav = () => {
-        // console.log(555)
         this.setState ({
             isOpen: !this.state.isOpen,
         });
