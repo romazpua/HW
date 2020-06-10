@@ -15,11 +15,12 @@ import Nav from "./components/CustomComponents/OurComponents/Nav/index";
 class App extends React.Component {
   state = {
     newTodoName: '',
+    currentTab: '',
     todos: [
       {
         id: 1,
         text: 'Todo 1',
-        done: false,
+        done: true,
         deleted: false,
       },
       {
@@ -33,6 +34,12 @@ class App extends React.Component {
         text: 'Do something',
         done: false,
         deleted: false,
+      },
+      {
+        id: 4,
+        text: 'Do something',
+        done: false,
+        deleted: true,
       }
     ]
   }
@@ -48,7 +55,8 @@ class App extends React.Component {
         text: this.state.newTodoName,
         done: false,
         deleted: false,
-      }], newTodoName: ''
+      }], newTodoName: '',
+
     })
   }
 
@@ -93,23 +101,52 @@ class App extends React.Component {
     })
   }
 
+  filter = oueTab => {
+    this.setState({
+      currentTab: oueTab
+    })
+  }
+
 
   render() {
     const {newTodoName, todos} = this.state
+    const allTodos = todos
+    const deletedTodos = todos.filter(el => el.deleted === true)
+    const inProgressTodos = todos.filter(el => (el.done === false && el.deleted === false))
+    const doneTodos = todos.filter(el => el.done === true)
+    let todosArr
+
+    switch (this.state.currentTab) {
+      case 'all':
+        todosArr = allTodos
+        break
+      case "in progress":
+        todosArr = inProgressTodos
+        break
+      case 'done':
+        todosArr = doneTodos
+        break
+      case 'deleted':
+        todosArr = deletedTodos
+        break
+      default:
+        todosArr = allTodos
+    }
+
     return (
       < div className="App">
         <Nav/>
         <h1>Todo app</h1>
         <div className="filter">
-          <Button variant='contained'>All</Button>
-          <Button variant='contained' color='primary'>In progerss</Button>
-          <ColorButton variant="contained">
+          <Button variant='contained' onClick={() => this.filter('all')}>All</Button>
+          <Button variant='contained' color='primary' onClick={() => this.filter('in progress')}>In progerss</Button>
+          <ColorButton variant="contained" onClick={() => this.filter('done')}>
             Done
           </ColorButton>
-          <Button variant='contained' color='secondary'>Deleted</Button>
+          <Button variant='contained' color='secondary' onClick={() => this.filter('deleted')}>Deleted</Button>
         </div>
         <div className="todos">
-          {todos.filter(el => el.deleted === false).map(todo => (
+          {todosArr !== null && todosArr.map(todo => (
             <div className={`todo ${todo.done ? "done" : ""}`}
                  key={todo.id}>
               <Checkbox color="primary" checked={todo.done}
@@ -130,15 +167,17 @@ class App extends React.Component {
             </div>
           ))}
         </div>
-        <div className="addTodo">
-          <input type="text" value={newTodoName} onChange={this.inputHandler}/>
-          <Button color='primary'
-                  variant='contained'
-                  disabled={!newTodoName}
-                  onClick={this.addTodo}>
-            Add todo
-          </Button>
-        </div>
+        {this.state.currentTab !== 'deleted' && (
+          <div className="addTodo">
+            <input type="text" value={newTodoName} onChange={this.inputHandler}/>
+            <Button color='primary'
+                    variant='contained'
+                    disabled={!newTodoName}
+                    onClick={this.addTodo}>
+              Add todo
+            </Button>
+          </div>)}
+
         <OurComponent number={uuidv4()} text={'dfdf'}/>
         <OurComponent number={uuidv4()} text={'dfbbdfsbsfdbsd'}/>
         <Text text='Hello'/>
