@@ -1,30 +1,34 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import "./index.scss"
 
-class Nav extends Component {
+class Nav extends PureComponent {
 
-    state = {
-        isOpen: false,
-    };
+  state = {
+    isOpen: false,
+  };
 
-    toggleNav = () => {
-        this.setState ({
-            isOpen: !this.state.isOpen,
-        });
-    };
+  componentDidMount() {
+    console.log(this.props.rows)
+  }
 
-    render() {
-        return (
-            <div className="Nav">
-                <div className="btn" onClick={this.toggleNav}>MENU</div>
-                <div className={`list ${this.state.isOpen ? ' active': ''}`}>
-                    <p>HOME</p>
-                    <p>ABOUT</p>
-                    <p>CONTACT</p>
-                </div>
-            </div> 
-        );
-    }
+  toggleNav = () => {
+    this.setState({
+      isOpen: !this.state.isOpen,
+    });
+  };
+
+  render() {
+    return (
+      <div className="Nav">
+        <div className="btn" onClick={this.toggleNav}>MENU</div>
+        <div className={`list ${this.state.isOpen ? ' active' : ''}`}>
+          <p>HOME</p>
+          <p>ABOUT</p>
+          <p>CONTACT</p>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default Nav;

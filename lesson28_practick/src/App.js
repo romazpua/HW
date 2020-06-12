@@ -7,6 +7,9 @@ import {v4 as uuidv4} from 'uuid';
 import Text from "./components/CustomComponents/OurComponents/text";
 import FuncEl from "./components/CustomComponents/OurComponents/FuncEl/index";
 import Nav from "./components/CustomComponents/OurComponents/Nav/index";
+import CircularProgress from "@material-ui/core/CircularProgress";
+import Posts from "./components/CustomComponents/OurComponents/Posts/index";
+import FuncComponent from "./components/FuncComponent";
 
 // function App() {
 //   return <div className="App">Functional Component</div>;
@@ -15,7 +18,9 @@ import Nav from "./components/CustomComponents/OurComponents/Nav/index";
 class App extends React.Component {
   state = {
     newTodoName: '',
-    currentTab: '',
+    currentTab: 'in progress',
+    users: [],
+    isLoading: true,
     todos: [
       {
         id: 1,
@@ -43,6 +48,16 @@ class App extends React.Component {
       }
     ]
   }
+
+  componentDidMount() {
+
+    fetch('https://jsonplaceholder.typicode.com/users/')
+      .then(response => response.json())
+      .then(json => {
+        this.setState({users: json, isLoading: false})
+      })
+  }
+  
   inputHandler = event => {
     this.setState({
       newTodoName: event.target.value
@@ -109,7 +124,7 @@ class App extends React.Component {
 
 
   render() {
-    const {newTodoName, todos} = this.state
+    const {newTodoName, todos, users, isLoading} = this.state
     const allTodos = todos
     const deletedTodos = todos.filter(el => el.deleted === true)
     const inProgressTodos = todos.filter(el => (el.done === false && el.deleted === false))
@@ -135,7 +150,23 @@ class App extends React.Component {
 
     return (
       < div className="App">
-        <Nav/>
+        <FuncComponent uorNewProp={28}/>
+        <Nav rows={[1,2,3,4]} />
+
+        {
+          isLoading
+          ? <CircularProgress size={30} thickness={5}/>
+            : (
+              <>
+                {users.map(el => (
+                  <p key={el.id}>{el.name}</p>
+                ))}
+              </>
+            )
+        }
+
+        <Posts/>
+
         <h1>Todo app</h1>
         <div className="filter">
           <Button variant='contained' onClick={() => this.filter('all')}>All</Button>
