@@ -1,11 +1,16 @@
 import React from "react";
-import "./App.scss";
 import {Switch, Route, NavLink} from "react-router-dom";
 import Users from "./components/Users";
 import {User} from "./components/User";
 import {NewPost} from "./components/NewPost/index";
 import NewPosts from "./components/NewPosts";
 import OldLessons from "./components/OldLessons";
+import Register from "./components/Register";
+import LogIn from "./components/LogIn";
+import "./App.scss";
+import MewFuncComp from "./components/NewFuncComp";
+import Redux from "./components/Redux";
+import UseEfect from "./components/UseEfect";
 
 
 class App extends React.Component {
@@ -26,16 +31,20 @@ class App extends React.Component {
       < div className="App">
 
         <nav>
-          <NavLink to="/">Главная</NavLink>
-          <NavLink to="/users">Юзеры</NavLink>
-          <NavLink to="/posts">Посты</NavLink>
-          <NavLink to="old-lessons">Old lessons</NavLink>
+          <NavLink exact to="/">Главная</NavLink>
+          <NavLink exact to="/users">Юзеры</NavLink>
+          <NavLink exact to="/posts">Посты</NavLink>
+          <NavLink exact to="old-lessons">Old lessons</NavLink>
+          <NavLink exact to="/register">Register</NavLink>
+          <NavLink exact to="/login">Login</NavLink>
+          <NavLink exact to="/userefect">UseEfect</NavLink>
+          <NavLink exact to="/redux">Redux</NavLink>
         </nav>
 
         <Switch>
 
           <Route path="/old-lessons">
-            <OldLessons/>
+            <OldLessons age={25}/>
           </Route>
           <Route exact path="/users">
             <Users/>
@@ -50,7 +59,19 @@ class App extends React.Component {
             <User/>
           </Route>
           <Route exact path="/">
-            H O M E
+            <MewFuncComp/>
+          </Route>
+          <Route exact path="/login">
+            <LogIn/>
+          </Route>
+          <Route exact path="/register">
+            <Register/>
+          </Route>
+          <Route exact path="/userefect">
+            <UseEfect/>
+          </Route>
+          <Route exact path="/redux">
+            <Redux/>
           </Route>
 
         </Switch>

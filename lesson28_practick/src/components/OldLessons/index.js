@@ -10,6 +10,7 @@ import Posts from "../CustomComponents/OurComponents/Posts";
 import OurComponent from "../CustomComponents/OurComponents";
 import Text from "../CustomComponents/OurComponents/text";
 import Nav from "../Nav";
+import PropTypes from 'prop-types';
 
 class OldLessons extends React.Component {
   state = {
@@ -83,6 +84,7 @@ class OldLessons extends React.Component {
 
     })
   }
+
 
   doneTodo = (event, id) => {
     this.setState({
@@ -161,7 +163,10 @@ class OldLessons extends React.Component {
     return (
       < div className="App">
 
-        OLD-LESSONS
+        Вш возраст: {this.props.age};
+        <br/>
+        <br/>
+        <h2 className={'titleOldLessons'}>OLD-LESSONS </h2>
         <form onSubmit={this.submitH}>
           <input
             type="text"
@@ -248,6 +253,10 @@ class OldLessons extends React.Component {
       </div>
     );
   }
+}
+
+OldLessons.propTypes = {
+  age: PropTypes.number.isRequired,
 }
 
 export default OldLessons;
