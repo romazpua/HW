@@ -1,0 +1,113 @@
+*,
+*:before,
+*:after {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Roboto", sans-serif;
+}
+.video {
+  padding: 50px 15px;
+  h1 {
+    font-size: 34px;
+    color: rgb(104, 104, 104);
+    text-align: center;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+  }
+  .videos {
+    display: flex;
+    .full {
+      width: 70%;
+      padding: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .full__item {
+        max-width: 800px;
+        width: 100%;
+        height: 400px;
+        position: relative;
+        .layer {
+          display: none;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+          cursor: pointer;
+          .layerBtn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 150px;
+            width: 100%;
+            opacity: 0.7;
+            transition: 0.5s;
+            cursor: pointer;
+          }
+          .layerPic {
+            max-width: 800px;
+            width: 100%;
+            min-width: 500px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }
+          &.active {
+            display: flex;
+          }
+          &:hover {
+            .layerBtn {
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+    .prev {
+      width: 30%;
+      max-height: 440px;
+      height: 100%;
+      padding: 15px;
+      overflow: auto;
+      border-left: 1px solid rgb(104, 104, 104);
+      .prev__item {
+        display: flex;
+        padding: 5px;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        img {
+          max-width: 160px;
+          width: 100%;
+          margin-right: 15px;
+        }
+        h3 {
+          font-size: 14px;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+}
+.lesson18 {
+  padding: 50px 0;
+  div {
+    width: 50px;
+    height: 50px;
+    border: 1px solid red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+  }
+}

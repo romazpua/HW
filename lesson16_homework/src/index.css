@@ -1,0 +1,65 @@
+.description {
+  padding: 100px 0;
+}
+
+.description h2 {
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 8px;
+  margin-bottom: 50px;
+}
+
+.description form {
+  text-align: center;
+}
+
+.description form input {
+  max-width: 250px;
+  width: 100%;
+  height: 40px;
+  margin: 10px;
+  padding: 10px;
+  outline: none;
+  border: 1px solid #505050;
+  border-radius: 10px;
+}
+
+.description form textarea {
+  outline: none;
+  max-width: 800px;
+  width: 100%;
+  height: 200px;
+  margin: 10px 10px 30px;
+  resize: none;
+  padding: 10px;
+  border: 1px solid #505050;
+  border-radius: 10px;
+}
+
+.description form a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  text-transform: uppercase;
+  max-width: 200px;
+  width: 100%;
+  height: 40px;
+  color: #fff;
+  background: #000;
+  border-radius: 10px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.description form a:hover {
+  text-decoration: none;
+  color: #000;
+  background: #fff;
+  border: 1px solid #000;
+}

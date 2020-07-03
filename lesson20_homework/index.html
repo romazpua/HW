@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./libs/bootstrap.css" />
+    <link rel="stylesheet" href="./src/index.css" />
+  </head>
+  <body>
+    <section class="homeWork">
+      <div class="container">
+        <div class="switch__btn">
+          <h3>Dark Theme</h3>
+          <label class="switch">
+            <input type="checkbox">
+            <span class="slider round"></span>
+          </label>
+        </div>
+        <div class="tabs">
+          <div class="tabs__nav">
+            <nav class="tab__nav">
+              <a href="#Sosiski" class="tabs__navItemLink active" data-id="Sosiski" id="tab1"
+                >Сосиски</a
+              >
+              <a href="#Colbasi" class="tabs__navItemLink" data-id="Colbasi" id="tab2">Колбасы</a>
+              <a href="#Sardelki" class="tabs__navItemLink" data-id="Sardelki" id="tab3"
+                >Сардельки</a
+              >
+            </nav>
+          </div>
+          <div class="tabs__content">
+            <div class="tab__content show" id="Sosiski">
+              <img src="./img/sosiski.jpg" alt="sosiski" />
+            </div>
+            <div class="tab__content" id="Colbasi">
+              <img src="./img/kolbasi.jpg" alt="kolbasi" />
+            </div>
+            <div class="tab__content" id="Sardelki">
+              <img src="./img/sardelki.jpg" alt="sardelki" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="./libs/jquery-3.5.0.js"></script>
+    <script src="./src/index.js"></script>
+  </body>
+</html>

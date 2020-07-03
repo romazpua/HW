@@ -11,6 +11,7 @@ import "./App.scss";
 import MewFuncComp from "./components/NewFuncComp";
 import Redux from "./components/Redux";
 import UseEfect from "./components/UseEfect";
+import TestLes from "./components/TestLes";
 
 
 class App extends React.Component {
@@ -39,6 +40,7 @@ class App extends React.Component {
           <NavLink exact to="/login">Login</NavLink>
           <NavLink exact to="/userefect">UseEfect</NavLink>
           <NavLink exact to="/redux">Redux</NavLink>
+          <NavLink exact to="/testles">TestLes</NavLink>
         </nav>
 
         <Switch>
@@ -72,6 +74,9 @@ class App extends React.Component {
           </Route>
           <Route exact path="/redux">
             <Redux/>
+          </Route>
+          <Route exact path="/testles">
+            <TestLes/>
           </Route>
 
         </Switch>

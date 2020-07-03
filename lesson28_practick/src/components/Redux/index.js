@@ -38,7 +38,7 @@ class Redux extends React.Component {
             ))
           ) :
           (<p>НЕТ ЮЗЕРОВ</p>)}
-        <button onClick={this.props.getUsers}>Change</button>
+        <button onClick={this.props.getUsers}>Получить</button>
       </>
     )
   }

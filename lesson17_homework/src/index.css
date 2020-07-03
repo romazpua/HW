@@ -1,0 +1,134 @@
+*,
+*:before,
+*:after {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+.video {
+  padding: 50px 15px;
+}
+
+.video h1 {
+  font-size: 34px;
+  color: #686868;
+  text-align: center;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+
+.video .videos {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.video .videos .full {
+  width: 70%;
+  padding: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.video .videos .full .full__item {
+  display: none;
+  max-width: 800px;
+  width: 100%;
+  height: 400px;
+  position: relative;
+}
+
+.video .videos .full .full__item.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.video .videos .full .full__item .layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.video .videos .full .full__item .layer .layerBtn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  max-width: 150px;
+  width: 100%;
+  opacity: .8;
+  -webkit-transition: .5s;
+  transition: .5s;
+  cursor: pointer;
+}
+
+.video .videos .full .full__item .layer .layerBtn:hover {
+  opacity: 1;
+}
+
+.video .videos .full .full__item .layer .layerPic {
+  max-width: 800px;
+  width: 100%;
+  min-width: 500px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.video .videos .full .full__item .layer.hide {
+  display: none;
+}
+
+.video .videos .prev {
+  width: 30%;
+  max-height: 440px;
+  height: 100%;
+  padding: 15px;
+  overflow: auto;
+  border-left: 1px solid #686868;
+}
+
+.video .videos .prev .prev__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 5px;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.video .videos .prev .prev__item img {
+  max-width: 160px;
+  width: 100%;
+  margin-right: 15px;
+}
+
+.video .videos .prev .prev__item h3 {
+  font-size: 14px;
+  font-weight: 400;
+}
